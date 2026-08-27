@@ -54,6 +54,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
 .explorer-overlay.open{display:flex;}
 .explorer-box{position:relative;max-width:760px;width:100%;}
 .explorer-box img{width:100%;max-height:70vh;object-fit:contain;border-radius:var(--radius);display:block;background:#000;}
+.explorer-tag{display:inline-block;position:absolute;top:12px;left:12px;z-index:1;background:var(--brick);color:var(--white);font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;}
 .explorer-caption{color:#E7E3DA;font-size:14px;margin-top:16px;text-align:center;}
 .explorer-count{color:#9AA2AA;font-size:13px;margin-top:6px;text-align:center;}
 .explorer-close{position:absolute;top:-44px;right:0;background:none;border:none;color:var(--white);font-size:32px;line-height:1;cursor:pointer;padding:6px;}
@@ -107,6 +108,7 @@ footer .logo-text .sub{color:#8A939C;}
 <div class="explorer-box">
 <button class="explorer-close" onclick="closeExplorer()" aria-label="Close">&times;</button>
 <button class="explorer-nav explorer-prev" onclick="stepExplorer(-1)" aria-label="Previous photo">&#8249;</button>
+<span class="explorer-tag" id="explorerTag"></span>
 <img id="explorerImg" src="" alt="">
 <button class="explorer-nav explorer-next" onclick="stepExplorer(1)" aria-label="Next photo">&#8250;</button>
 <p class="explorer-caption" id="explorerCaption"></p>
@@ -131,11 +133,15 @@ const photoSets={
     {src:'images/patio-3.jpg',caption:'Finished patio corner with timber sleeper border and lawn.'}
   ],
   bathroom:[
-    {src:'images/bathroom-after-1.png',caption:'Fully re-tiled bathroom with a wall-mounted vanity unit, mirrored cabinet and chrome mixer tap.'},
-    {src:'images/bathroom-after-2.png',caption:'New anthracite heated towel rail and floor tiling finished to match the room.'},
-    {src:'images/bathroom-after-3.png',caption:'Anthracite ladder-style heated towel rail fitted flush to the tiled wall.'},
-    {src:'images/bathroom-after-4.png',caption:'Recessed shower shelving and glass screen, viewed through the vanity mirror.'},
-    {src:'images/bathroom-after-5.png',caption:'Frosted privacy glazing and tiled window sill finished to complete the room.'}
+    {src:'images/bathroom-before-1.png',tag:'Before',caption:''},
+    {src:'images/bathroom-before-2.png',tag:'Before',caption:''},
+    {src:'images/bathroom-before-3.png',tag:'Before',caption:''},
+    {src:'images/bathroom-before-4.png',tag:'Before',caption:''},
+    {src:'images/bathroom-after-1.png',tag:'After',caption:'Fully re-tiled bathroom with a wall-mounted vanity unit, mirrored cabinet and chrome mixer tap.'},
+    {src:'images/bathroom-after-2.png',tag:'After',caption:'New anthracite heated towel rail and floor tiling finished to match the room.'},
+    {src:'images/bathroom-after-3.png',tag:'After',caption:'Anthracite ladder-style heated towel rail fitted flush to the tiled wall.'},
+    {src:'images/bathroom-after-4.png',tag:'After',caption:'Recessed shower shelving and glass screen, viewed through the vanity mirror.'},
+    {src:'images/bathroom-after-5.png',tag:'After',caption:'Frosted privacy glazing and tiled window sill finished to complete the room.'}
   ]
 };
 let currentSet='patio';
@@ -144,12 +150,16 @@ const explorerOverlay=document.getElementById('explorerOverlay');
 const explorerImg=document.getElementById('explorerImg');
 const explorerCaption=document.getElementById('explorerCaption');
 const explorerCount=document.getElementById('explorerCount');
+const explorerTag=document.getElementById('explorerTag');
 function renderExplorer(){
   const photos=photoSets[currentSet];
   const photo=photos[explorerIndex];
   explorerImg.src=photo.src;
-  explorerImg.alt=photo.caption;
-  explorerCaption.textContent=photo.caption;
+  explorerImg.alt=photo.caption||photo.tag||'';
+  explorerCaption.textContent=photo.caption||'';
+  explorerCaption.style.display=photo.caption?'block':'none';
+  explorerTag.textContent=photo.tag||'';
+  explorerTag.style.display=photo.tag?'inline-block':'none';
   explorerCount.textContent=(explorerIndex+1)+' / '+photos.length;
 }
 function openExplorer(setName,index){
