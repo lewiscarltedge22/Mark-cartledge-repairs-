@@ -84,9 +84,12 @@ footer .logo-text .sub{color:#8A939C;}
 </div></section>
 <section><div class="wrap">
 <div class="gallery-grid">
-<div class="gallery-tile"><span>Bathrooms</span><p>Full fit-outs &amp; refurbishments</p></div>
+<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/bathroom-after-1.png');" onclick="openExplorer('bathroom',0)" role="button" tabindex="0" aria-label="Explore bathroom project photos" onkeydown="if(event.key==='Enter')openExplorer('bathroom',0)">
+<span class="explore-tag">Explore Photos</span>
+<span>Bathrooms</span><p>Full fit-outs &amp; refurbishments</p>
+</div>
 <div class="gallery-tile"><span>Kitchens</span><p>Strip-out to final finish</p></div>
-<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/patio-1.jpg');" onclick="openExplorer(0)" role="button" tabindex="0" aria-label="Explore recent patio project photos" onkeydown="if(event.key==='Enter')openExplorer(0)">
+<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/patio-1.jpg');" onclick="openExplorer('patio',0)" role="button" tabindex="0" aria-label="Explore recent patio project photos" onkeydown="if(event.key==='Enter')openExplorer('patio',0)">
 <span class="explore-tag">Explore Photos</span>
 <span>Patios</span><p>Laying &amp; outdoor paving</p>
 </div>
@@ -121,24 +124,36 @@ const navLinks=document.getElementById('navLinks');
 navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',open);});
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded',false);}));
 
-const patioPhotos=[
-{src:'images/patio-1.jpg',caption:'Newly laid patio next to the French doors, with sleeper edging.'},
-{src:'images/patio-2.jpg',caption:'Patio paving along the side of the house with a drainage channel.'},
-{src:'images/patio-3.jpg',caption:'Finished patio corner with timber sleeper border and lawn.'}
-];
+const photoSets={
+  patio:[
+    {src:'images/patio-1.jpg',caption:'Newly laid patio next to the French doors, with sleeper edging.'},
+    {src:'images/patio-2.jpg',caption:'Patio paving along the side of the house with a drainage channel.'},
+    {src:'images/patio-3.jpg',caption:'Finished patio corner with timber sleeper border and lawn.'}
+  ],
+  bathroom:[
+    {src:'images/bathroom-after-1.png',caption:'Fully re-tiled bathroom with a wall-mounted vanity unit, mirrored cabinet and chrome mixer tap.'},
+    {src:'images/bathroom-after-2.png',caption:'New anthracite heated towel rail and floor tiling finished to match the room.'},
+    {src:'images/bathroom-after-3.png',caption:'Anthracite ladder-style heated towel rail fitted flush to the tiled wall.'},
+    {src:'images/bathroom-after-4.png',caption:'Recessed shower shelving and glass screen, viewed through the vanity mirror.'},
+    {src:'images/bathroom-after-5.png',caption:'Frosted privacy glazing and tiled window sill finished to complete the room.'}
+  ]
+};
+let currentSet='patio';
 let explorerIndex=0;
 const explorerOverlay=document.getElementById('explorerOverlay');
 const explorerImg=document.getElementById('explorerImg');
 const explorerCaption=document.getElementById('explorerCaption');
 const explorerCount=document.getElementById('explorerCount');
 function renderExplorer(){
-  const photo=patioPhotos[explorerIndex];
+  const photos=photoSets[currentSet];
+  const photo=photos[explorerIndex];
   explorerImg.src=photo.src;
   explorerImg.alt=photo.caption;
   explorerCaption.textContent=photo.caption;
-  explorerCount.textContent=(explorerIndex+1)+' / '+patioPhotos.length;
+  explorerCount.textContent=(explorerIndex+1)+' / '+photos.length;
 }
-function openExplorer(index){
+function openExplorer(setName,index){
+  currentSet=setName;
   explorerIndex=index;
   renderExplorer();
   explorerOverlay.classList.add('open');
@@ -149,7 +164,8 @@ function closeExplorer(){
   document.body.style.overflow='';
 }
 function stepExplorer(delta){
-  explorerIndex=(explorerIndex+delta+patioPhotos.length)%patioPhotos.length;
+  const photos=photoSets[currentSet];
+  explorerIndex=(explorerIndex+delta+photos.length)%photos.length;
   renderExplorer();
 }
 document.addEventListener('keydown',(e)=>{
