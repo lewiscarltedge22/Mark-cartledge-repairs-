@@ -9,606 +9,140 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1E2328;
-    --charcoal:#2C333A;
-    --slate:#5B6570;
-    --brick:#D9622B;
-    --brick-dark:#B94F1F;
-    --cream:#F7F4EF;
-    --cream-dim:#ECE6DA;
-    --white:#FFFFFF;
-    --line:#DCD5C7;
-    --radius:6px;
-    --max:1180px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
-  }
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Inter', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,h4{
-    font-family:'Poppins', sans-serif;
-    font-weight:700;
-    line-height:1.15;
-    color:var(--ink);
-  }
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
-  :focus-visible{outline:2px solid var(--brick); outline-offset:3px;}
-  .eyebrow{
-    font-family:'Poppins', sans-serif;
-    font-size:13px;
-    font-weight:600;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--brick);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:14px;
-  }
-  .eyebrow::before{
-    content:"";
-    width:22px; height:2px;
-    background:var(--brick);
-    display:inline-block;
-  }
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:14px 28px;
-    border-radius:var(--radius);
-    font-family:'Poppins', sans-serif;
-    font-weight:600;
-    font-size:15px;
-    cursor:pointer;
-    border:2px solid transparent;
-    transition:transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--brick); color:var(--white);}
-  .btn-primary:hover{background:var(--brick-dark);}
-  .btn-outline{border-color:var(--charcoal); color:var(--charcoal); background:transparent;}
-  .btn-outline:hover{background:var(--charcoal); color:var(--white);}
-  section{padding:88px 0;}
-  .section-head{max-width:640px; margin-bottom:52px;}
-  .section-head p{color:var(--slate); font-size:17px; margin-top:12px;}
-
-  /* ---------- HEADER ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(247,244,239,0.94);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 32px;
-    max-width:var(--max); margin:0 auto;
-  }
-  .logo{display:flex; align-items:center; gap:12px;}
-  .logo-mark{
-    width:42px; height:42px;
-    background:var(--charcoal);
-    border-radius:8px;
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Poppins', sans-serif;
-    font-weight:800;
-    font-size:16px;
-    color:var(--brick);
-    flex-shrink:0;
-  }
-  .logo-text{font-family:'Poppins', sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.01em;}
-  .logo-text .sub{
-    display:block;
-    font-size:10.5px;
-    font-weight:600;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--slate);
-    margin-top:2px;
-  }
-  .nav-links{display:flex; gap:32px; align-items:center; font-size:14.5px; font-weight:500;}
-  .nav-links a:not(.btn){position:relative; padding:4px 0; color:var(--charcoal);}
-  .nav-links a:not(.btn)::after{
-    content:""; position:absolute; left:0; right:0; bottom:0;
-    height:2px; background:var(--brick);
-    transform:scaleX(0); transform-origin:left;
-    transition:transform .2s ease;
-  }
-  .nav-links a:not(.btn):hover::after{transform:scaleX(1);}
-  .nav-toggle{display:none; background:none; border:none; cursor:pointer; padding:6px;}
-  .nav-toggle span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; transition:.2s;}
-
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:96px 0 88px;
-    background:
-      radial-gradient(900px 400px at 85% -10%, rgba(217,98,43,0.14), transparent 60%),
-      var(--cream);
-    border-bottom:1px solid var(--line);
-  }
-  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
-  .hero h1{font-size:46px; letter-spacing:-0.015em; margin-bottom:20px;}
-  .hero h1 span{color:var(--brick);}
-  .hero p.lead{font-size:18px; color:var(--slate); max-width:520px; margin-bottom:32px;}
-  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:36px;}
-  .trust-row{display:flex; gap:28px; flex-wrap:wrap;}
-  .trust-item{display:flex; align-items:center; gap:9px; font-size:14px; font-weight:600; color:var(--charcoal);}
-  .trust-item svg{flex-shrink:0;}
-  .hero-panel{
-    background:var(--charcoal);
-    border-radius:14px;
-    padding:40px;
-    color:var(--white);
-    position:relative;
-    overflow:hidden;
-  }
-  .hero-panel::before{
-    content:"";
-    position:absolute; inset:0;
-    background:repeating-linear-gradient(135deg, rgba(217,98,43,0.10) 0px, rgba(217,98,43,0.10) 2px, transparent 2px, transparent 22px);
-  }
-  .hero-panel-inner{position:relative;}
-  .hero-panel .tag{
-    font-family:'Poppins', sans-serif; font-size:12px; font-weight:600;
-    letter-spacing:0.12em; text-transform:uppercase; color:#F0A57A; margin-bottom:14px;
-  }
-  .hero-panel h3{font-size:24px; margin-bottom:16px;}
-  .hero-panel ul{list-style:none; display:flex; flex-direction:column; gap:12px;}
-  .hero-panel li{display:flex; align-items:center; gap:10px; font-size:15px; color:#E7E3DA;}
-  .hero-panel li svg{flex-shrink:0; color:var(--brick);}
-
-  /* ---------- SERVICES ---------- */
-  .services-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;}
-  .service-card{
-    background:var(--white);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:28px 24px;
-    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-  }
-  .service-card:hover{transform:translateY(-4px); box-shadow:0 16px 32px -18px rgba(30,35,40,0.25); border-color:var(--brick);}
-  .service-icon{
-    width:52px; height:52px; border-radius:10px;
-    background:var(--cream-dim);
-    display:flex; align-items:center; justify-content:center;
-    margin-bottom:18px; color:var(--brick);
-  }
-  .service-card h3{font-size:18px; margin-bottom:10px;}
-  .service-card p{font-size:14.5px; color:var(--slate);}
-
-  /* ---------- ABOUT ---------- */
-  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center;}
-  .about-photo{
-    aspect-ratio:4/5;
-    border-radius:14px;
-    background:linear-gradient(160deg, var(--charcoal), #3C4550);
-    display:flex; align-items:center; justify-content:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .about-photo::before{
-    content:"";
-    position:absolute; inset:0;
-    background:repeating-linear-gradient(45deg, rgba(217,98,43,0.08) 0px, rgba(217,98,43,0.08) 2px, transparent 2px, transparent 24px);
-  }
-  .about-photo .initials{
-    font-family:'Poppins', sans-serif; font-weight:800; font-size:88px; color:rgba(255,255,255,0.92); position:relative;
-  }
-  .about-photo .caption{
-    position:absolute; bottom:22px; left:22px; right:22px;
-    font-size:13px; color:rgba(255,255,255,0.7);
-  }
-  .about-copy p{color:var(--slate); margin-bottom:18px; font-size:16px;}
-  .about-stats{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; margin-top:30px;}
-  .stat{border-top:2px solid var(--brick); padding-top:12px;}
-  .stat strong{display:block; font-family:'Poppins', sans-serif; font-size:22px; margin-bottom:4px;}
-  .stat span{font-size:13px; color:var(--slate);}
-
-  /* ---------- WHY CHOOSE ---------- */
-  .why{background:var(--charcoal); color:var(--white);}
-  .why .section-head p{color:#B9C0C7;}
-  .why-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;}
-  .why-card{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.10);
-    border-radius:var(--radius);
-    padding:26px 22px;
-  }
-  .why-card .why-icon{color:var(--brick); margin-bottom:16px;}
-  .why-card h3{font-size:16.5px; color:var(--white); margin-bottom:8px;}
-  .why-card p{font-size:14px; color:#B9C0C7;}
-
-  /* ---------- CONTACT ---------- */
-  .contact-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:56px;}
-  .contact-info-card{
-    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
-    padding:32px;
-  }
-  .contact-row{display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line);}
-  .contact-row:last-child{border-bottom:none;}
-  .contact-row .ci-icon{
-    width:40px; height:40px; border-radius:8px; background:var(--cream-dim);
-    display:flex; align-items:center; justify-content:center; color:var(--brick); flex-shrink:0;
-  }
-  .contact-row h4{font-size:14px; margin-bottom:3px;}
-  .contact-row p{font-size:14.5px; color:var(--slate);}
-  .contact-row a{color:var(--charcoal); font-weight:600;}
-  .contact-row a:hover{color:var(--brick);}
-  .placeholder{color:var(--brick); font-style:italic;}
-  .form-card{
-    background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:36px;
-  }
-  .form-card h3{margin-bottom:8px;}
-  .form-card > p{color:var(--slate); font-size:14.5px; margin-bottom:26px;}
-  .field{margin-bottom:18px;}
-  .field label{display:block; font-size:13px; font-weight:600; margin-bottom:6px; color:var(--charcoal);}
-  .field input, .field select, .field textarea{
-    width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius);
-    font-family:'Inter', sans-serif; font-size:14.5px; background:var(--cream); color:var(--ink);
-  }
-  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--brick); outline-offset:1px;}
-  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  .field textarea{resize:vertical; min-height:110px;}
-
-  /* ---------- FOOTER ---------- */
-  footer{background:var(--ink); color:#C7CDD3; padding:48px 0 28px;}
-  .footer-grid{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:32px;}
-  footer .logo-text{color:var(--white);}
-  footer .logo-text .sub{color:#8A939C;}
-  .footer-nav{display:flex; gap:26px; font-size:14px; flex-wrap:wrap;}
-  .footer-nav a:hover{color:var(--white);}
-  .footer-bottom{border-top:1px solid rgba(255,255,255,0.10); padding-top:22px; font-size:13px; color:#8A939C; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
-
-  @media (max-width:920px){
-    .nav-links{position:fixed; top:73px; left:0; right:0; background:var(--cream); flex-direction:column; align-items:flex-start; padding:20px 32px 28px; border-bottom:1px solid var(--line); gap:18px; transform:translateY(-130%); transition:transform .25s ease; }
-    .nav-links.open{transform:translateY(0);}
-    .nav-toggle{display:block;}
-    .hero-grid{grid-template-columns:1fr;}
-    .about-grid{grid-template-columns:1fr;}
-    .about-photo{max-width:340px;}
-    .services-grid{grid-template-columns:repeat(2, 1fr);}
-    .why-grid{grid-template-columns:repeat(2, 1fr);}
-    .contact-grid{grid-template-columns:1fr;}
-    .field-row{grid-template-columns:1fr;}
-    .hero h1{font-size:36px;}
-  }
-  @media (max-width:560px){
-    .services-grid{grid-template-columns:1fr;}
-    .why-grid{grid-template-columns:1fr;}
-    section{padding:64px 0;}
-    .wrap{padding:0 20px;}
-  }
+:root{--ink:#1E2328;--charcoal:#2C333A;--slate:#5B6570;--brick:#D9622B;--brick-dark:#B94F1F;--cream:#F7F4EF;--cream-dim:#ECE6DA;--white:#FFFFFF;--line:#DCD5C7;--radius:6px;--max:1180px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:700;line-height:1.15;color:var(--ink);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+.eyebrow{font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--brick);display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--brick);display:inline-block;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--radius);font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;cursor:pointer;border:2px solid transparent;transition:transform .15s ease,background .15s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--brick);color:var(--white);}
+.btn-primary:hover{background:var(--brick-dark);}
+.btn-outline{border-color:var(--charcoal);color:var(--charcoal);background:transparent;}
+.btn-outline:hover{background:var(--charcoal);color:var(--white);}
+section{padding:88px 0;}
+.section-head{max-width:640px;margin-bottom:52px;}
+.section-head p{color:var(--slate);font-size:17px;margin-top:12px;}
+header{position:sticky;top:0;z-index:50;background:rgba(247,244,239,0.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:var(--max);margin:0 auto;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-mark{width:42px;height:42px;background:var(--charcoal);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:800;font-size:16px;color:var(--brick);flex-shrink:0;}
+.logo-text{font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em;}
+.logo-text .sub{display:block;font-size:10.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);margin-top:2px;}
+.nav-links{display:flex;gap:32px;align-items:center;font-size:14.5px;font-weight:500;}
+.nav-links a:not(.btn){position:relative;padding:4px 0;color:var(--charcoal);}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--brick);transform:scaleX(0);transform-origin:left;transition:transform .2s ease;}
+.nav-links a:not(.btn):hover::after{transform:scaleX(1);}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.2s;}
+.hero{padding:96px 0 88px;background:radial-gradient(900px 400px at 85% -10%,rgba(217,98,43,0.14),transparent 60%),var(--cream);border-bottom:1px solid var(--line);}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+.hero h1{font-size:46px;letter-spacing:-0.015em;margin-bottom:20px;}
+.hero h1 span{color:var(--brick);}
+.hero p.lead{font-size:18px;color:var(--slate);max-width:520px;margin-bottom:32px;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:36px;}
+.trust-row{display:flex;gap:28px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:var(--charcoal);}
+.hero-panel{background:var(--charcoal);border-radius:14px;padding:40px;color:var(--white);position:relative;overflow:hidden;}
+.hero-panel-inner{position:relative;}
+.hero-panel .tag{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#F0A57A;margin-bottom:14px;}
+.hero-panel h3{font-size:24px;margin-bottom:16px;}
+.hero-panel ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.hero-panel li{display:flex;align-items:center;gap:10px;font-size:15px;color:#E7E3DA;}
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.service-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;}
+.service-icon{width:52px;height:52px;border-radius:10px;background:var(--cream-dim);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--brick);}
+.service-card h3{font-size:18px;margin-bottom:10px;}
+.service-card p{font-size:14.5px;color:var(--slate);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;}
+.contact-info-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
+.contact-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
+.contact-row:last-child{border-bottom:none;}
+.contact-row .ci-icon{width:40px;height:40px;border-radius:8px;background:var(--cream-dim);display:flex;align-items:center;justify-content:center;color:var(--brick);flex-shrink:0;}
+.contact-row h4{font-size:14px;margin-bottom:3px;}
+.contact-row p{font-size:14.5px;color:var(--slate);}
+.contact-row a{color:var(--charcoal);font-weight:600;}
+.placeholder{color:var(--brick);font-style:italic;}
+.form-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:36px;}
+.form-card h3{margin-bottom:8px;}
+.form-card > p{color:var(--slate);font-size:14.5px;margin-bottom:26px;}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--charcoal);}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:14.5px;background:var(--cream);color:var(--ink);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field textarea{resize:vertical;min-height:110px;}
+footer{background:var(--ink);color:#C7CDD3;padding:48px 0 28px;}
+.footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;}
+footer .logo-text{color:var(--white);}
+footer .logo-text .sub{color:#8A939C;}
+.footer-nav{display:flex;gap:26px;font-size:14px;flex-wrap:wrap;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.10);padding-top:22px;font-size:13px;color:#8A939C;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+@media (max-width:920px){.nav-links{position:fixed;top:73px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:20px 32px 28px;border-bottom:1px solid var(--line);gap:18px;transform:translateY(-130%);transition:transform .25s ease;}.nav-links.open{transform:translateY(0);}.nav-toggle{display:block;}.hero-grid{grid-template-columns:1fr;}.services-grid{grid-template-columns:repeat(2,1fr);}.contact-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.hero h1{font-size:36px;}}
+@media (max-width:560px){.services-grid{grid-template-columns:1fr;}section{padding:64px 0;}.wrap{padding:0 20px;}}
 </style>
 </head>
 <body>
-
-<header>
-  <nav>
-    <a href="#top" class="logo">
-      <span class="logo-mark">MC</span>
-      <span class="logo-text">Mark Cartledge<span class="sub">MC Property Repairs</span></span>
-    </a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="work.html">Gallery</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn btn-primary">Get a Quote</a>
-    </div>
-  </nav>
-</header>
-
+<header><nav>
+<a href="#top" class="logo"><span class="logo-mark">MC</span><span class="logo-text">Mark Cartledge<span class="sub">MC Property Repairs</span></span></a>
+<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="about.html">About</a><a href="work.html">Gallery</a><a href="#contact">Contact</a><a href="#contact" class="btn btn-primary">Get a Quote</a></div>
+</nav></header>
 <main id="top">
-
-  <!-- ---------- HERO ---------- -->
-  <section class="hero" style="padding-top:96px;">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Self-Employed Builder</div>
-        <h1>Quality building work, <span>done right first time.</span></h1>
-        <p class="lead">Mark Cartledge is a local, self-employed builder with hands-on experience across bathrooms, kitchens, patios, fencing, drainage, plastering, painting and stud walls. One point of contact, start to finish.</p>
-        <div class="hero-ctas">
-          <a href="#contact" class="btn btn-primary">Request a Free Quote</a>
-          <a href="#services" class="btn btn-outline">View Services</a>
-        </div>
-        <div class="trust-row">
-          <div class="trust-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            Free, no-obligation quotes
-          </div>
-          <div class="trust-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            Fully insured
-          </div>
-          <div class="trust-item">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-            No job too small
-          </div>
-        </div>
-      </div>
-      <div class="hero-panel">
-        <div class="hero-panel-inner">
-          <div class="tag">What Mark covers</div>
-          <h3>One builder, every trade you need</h3>
-          <ul>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bathroom &amp; kitchen fitting</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Patios &amp; fencing</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Drainage work</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Plastering &amp; stud walls</li>
-            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Painting &amp; decorating</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- SERVICES ---------- -->
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">Services</div>
-        <h2>Everything from a new bathroom to a garden fence</h2>
-        <p>Mark handles the full job himself or with a trusted, vetted team — no subcontracting out to strangers.</p>
-      </div>
-      <div class="services-grid">
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-2 2.2L7 8"/><path d="M4 12h16"/><path d="M5 12v4a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4v-4"/><path d="M8 20v1"/><path d="M16 20v1"/></svg>
-          </div>
-          <h3>Bathrooms</h3>
-          <p>Full bathroom fit-outs and refurbishments — tiling, plumbing coordination and finishing to a high standard.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="11" rx="1"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/><path d="M3 14h18"/></svg>
-          </div>
-          <h3>Kitchens</h3>
-          <p>Kitchen fitting from strip-out to final finish, including units, worktops and carpentry detail.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-6h6v6"/></svg>
-          </div>
-          <h3>Patios</h3>
-          <p>Patio laying and outdoor paving built to last, with proper prep and drainage falls done correctly.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l4-3 4 3v12"/><path d="M12 21V9l4-3 4 3v12"/><path d="M2 21h20"/><path d="M4 13h4M12 13h4"/></svg>
-          </div>
-          <h3>Fencing</h3>
-          <p>Garden and boundary fencing — panels, posts and gates, fitted secure and built to withstand the weather.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-          </div>
-          <h3>Drainage</h3>
-          <p>Drainage repairs and installation to keep water moving away from your property, done properly.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 17 3l4 4L7 21H3z"/><path d="M13 7l4 4"/></svg>
-          </div>
-          <h3>Plastering</h3>
-          <p>Skimming and re-plastering for smooth, ready-to-decorate walls and ceilings on any size room.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 3 6 15l-2 6 6-2L22 7z"/><path d="M15 6l3 3"/></svg>
-          </div>
-          <h3>Painting</h3>
-          <p>Interior and exterior painting and decorating with a clean, tidy finish and proper surface prep.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 3v18M15 3v18M4 9h16M4 15h16"/></svg>
-          </div>
-          <h3>Stud Walls</h3>
-          <p>New stud partition walls to reshape a room, built square, insulated and ready for plastering.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- ABOUT ---------- -->
-  <section id="about" style="background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-    <div class="wrap about-grid">
-      <div class="about-photo">
-        <span class="initials">MC</span>
-        <span class="caption">Photo of Mark coming soon</span>
-      </div>
-      <div class="about-copy">
-        <div class="eyebrow">About Mark</div>
-        <h2 style="margin-bottom:20px;">A builder who does it properly, or not at all</h2>
-        <p>MC Property Repairs is run by Mark Cartledge, a self-employed builder covering a wide range of trades — from full bathroom and kitchen installs to patios, fencing, drainage, plastering, painting and stud wall partitions. Working self-employed means you deal with Mark directly from the first quote to the final walkthrough, not a call centre.</p>
-        <p>Every job gets the same approach: a clear quote, honest advice about what your project actually needs, and work that's finished properly the first time — no cut corners, no disappearing after the deposit.</p>
-        <div class="about-stats">
-          <div class="stat"><strong>1</strong><span>Direct point of contact</span></div>
-          <div class="stat"><strong>8+</strong><span>Trades covered</span></div>
-          <div class="stat"><strong>100%</strong><span>Hands-on approach</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- WHY CHOOSE ---------- -->
-  <section class="why">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow" style="color:#F0A57A;">Why Choose Mark</div>
-        <h2 style="color:#fff;">Straightforward building work, no surprises</h2>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3z"/></svg></div>
-          <h3>Fully Insured</h3>
-          <p>Public liability cover in place so your property and your project are protected.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11 12 14l6-6"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg></div>
-          <h3>Free Quotes</h3>
-          <p>A clear, no-obligation quote before any work starts — no hidden extras later.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-          <h3>Reliable &amp; Tidy</h3>
-          <p>Turns up when he says he will and leaves your home clean at the end of each day.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <h3>One Builder, All Trades</h3>
-          <p>No job too small — from a single stud wall to a full bathroom refit, done by one team.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ---------- CONTACT ---------- -->
-  <section id="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <div class="eyebrow">Get In Touch</div>
-        <h2 style="margin-bottom:16px;">Get a free, no-obligation quote</h2>
-        <p style="color:var(--slate); margin-bottom:30px;">Tell Mark a bit about the job and he'll get back to you to arrange a visit or call.</p>
-
-        <div class="contact-info-card">
-          <div class="contact-row">
-            <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <div>
-              <h4>Phone</h4>
-              <p><a href="tel:07887646820">07887 646820</a></p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6 12 13 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
-            <div>
-              <h4>Email</h4>
-              <p><a href="mailto:markcartledge35@gmail.com">markcartledge35@gmail.com</a></p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div>
-              <h4>Coverage Area</h4>
-              <p class="placeholder">[Add the towns/areas Mark covers]</p>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="ci-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-            <div>
-              <h4>Availability</h4>
-              <p>Mon – Sat, quotes usually confirmed within 48 hours.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-card">
-        <h3>Request a Quote</h3>
-        <p>Fill in a few details and Mark will get back to you.</p>
-        <form action="mailto:markcartledge35@gmail.com" method="post" enctype="text/plain">
-          <div class="field-row">
-            <div class="field">
-              <label for="name">Full name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
-            </div>
-            <div class="field">
-              <label for="phone">Phone number</label>
-              <input type="tel" id="phone" name="phone" placeholder="07xxx xxxxxx" required>
-            </div>
-          </div>
-          <div class="field">
-            <label for="email">Email address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-          </div>
-          <div class="field">
-            <label for="service">Type of job</label>
-            <select id="service" name="service">
-              <option>Bathroom</option>
-              <option>Kitchen</option>
-              <option>Patio</option>
-              <option>Fencing</option>
-              <option>Drainage</option>
-              <option>Plastering</option>
-              <option>Painting &amp; Decorating</option>
-              <option>Stud Wall</option>
-              <option>Other / Not Sure</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="message">Job details</label>
-            <textarea id="message" name="message" placeholder="Tell Mark a bit about the job, size of the space and rough timeframe."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;">Send Quote Request</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
+<section class="hero" style="padding-top:96px;"><div class="wrap hero-grid"><div>
+<div class="eyebrow">Self-Employed Builder</div>
+<h1>Quality building work, <span>done right first time.</span></h1>
+<p class="lead">Mark Cartledge is a local, self-employed builder with hands-on experience across bathrooms, kitchens, patios, fencing, drainage, plastering, painting and stud walls. One point of contact, start to finish.</p>
+<div class="hero-ctas"><a href="#contact" class="btn btn-primary">Request a Free Quote</a><a href="#services" class="btn btn-outline">View Services</a></div>
+<div class="trust-row"><div class="trust-item">Free, no-obligation quotes</div><div class="trust-item">Fully insured</div><div class="trust-item">No job too small</div></div>
+</div><div class="hero-panel"><div class="hero-panel-inner">
+<div class="tag">What Mark covers</div><h3>One builder, every trade you need</h3>
+<ul><li>Bathroom &amp; kitchen fitting</li><li>Patios &amp; fencing</li><li>Drainage work</li><li>Plastering &amp; stud walls</li><li>Painting &amp; decorating</li></ul>
+</div></div></div></section>
+<section id="services"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Services</div><h2>Everything from a new bathroom to a garden fence</h2><p>Mark handles the full job himself or with a trusted, vetted team — no subcontracting out to strangers.</p></div>
+<div class="services-grid">
+<div class="service-card"><h3>Bathrooms</h3><p>Full bathroom fit-outs and refurbishments — tiling, plumbing coordination and finishing to a high standard.</p></div>
+<div class="service-card"><h3>Kitchens</h3><p>Kitchen fitting from strip-out to final finish, including units, worktops and carpentry detail.</p></div>
+<div class="service-card"><h3>Patios</h3><p>Patio laying and outdoor paving built to last, with proper prep and drainage falls done correctly.</p></div>
+<div class="service-card"><h3>Fencing</h3><p>Garden and boundary fencing — panels, posts and gates, fitted secure and built to withstand the weather.</p></div>
+<div class="service-card"><h3>Drainage</h3><p>Drainage repairs and installation to keep water moving away from your property, done properly.</p></div>
+<div class="service-card"><h3>Plastering</h3><p>Skimming and re-plastering for smooth, ready-to-decorate walls and ceilings on any size room.</p></div>
+<div class="service-card"><h3>Painting</h3><p>Interior and exterior painting and decorating with a clean, tidy finish and proper surface prep.</p></div>
+<div class="service-card"><h3>Stud Walls</h3><p>New stud partition walls to reshape a room, built square, insulated and ready for plastering.</p></div>
+</div></div></section>
+<section id="contact"><div class="wrap contact-grid"><div>
+<div class="eyebrow">Get In Touch</div><h2 style="margin-bottom:16px;">Get a free, no-obligation quote</h2><p style="color:var(--slate);margin-bottom:30px;">Tell Mark a bit about the job and he'll get back to you to arrange a visit or call.</p>
+<div class="contact-info-card">
+<div class="contact-row"><div><h4>Phone</h4><p><a href="tel:07887646820">07887 646820</a></p></div></div>
+<div class="contact-row"><div><h4>Email</h4><p><a href="mailto:markcartledge35@gmail.com">markcartledge35@gmail.com</a></p></div></div>
+<div class="contact-row"><div><h4>Coverage Area</h4><p class="placeholder">[Add the towns/areas Mark covers]</p></div></div>
+<div class="contact-row"><div><h4>Availability</h4><p>Mon – Sat, quotes usually confirmed within 48 hours.</p></div></div>
+</div></div>
+<div class="form-card"><h3>Request a Quote</h3><p>Fill in a few details and Mark will get back to you.</p>
+<form action="mailto:markcartledge35@gmail.com" method="post" enctype="text/plain">
+<div class="field-row"><div class="field"><label for="name">Full name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+<div class="field"><label for="phone">Phone number</label><input type="tel" id="phone" name="phone" placeholder="07xxx xxxxxx" required></div></div>
+<div class="field"><label for="email">Email address</label><input type="email" id="email" name="email" placeholder="you@example.com" required></div>
+<div class="field"><label for="service">Type of job</label><select id="service" name="service"><option>Bathroom</option><option>Kitchen</option><option>Patio</option><option>Fencing</option><option>Drainage</option><option>Plastering</option><option>Painting &amp; Decorating</option><option>Stud Wall</option><option>Other / Not Sure</option></select></div>
+<div class="field"><label for="message">Job details</label><textarea id="message" name="message" placeholder="Tell Mark a bit about the job, size of the space and rough timeframe."></textarea></div>
+<button type="submit" class="btn btn-primary" style="width:100%;">Send Quote Request</button>
+</form></div></div></section>
 </main>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <a href="#top" class="logo">
-        <span class="logo-mark">MC</span>
-        <span class="logo-text">Mark Cartledge<span class="sub">MC Property Repairs</span></span>
-      </a>
-      <div class="footer-nav">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="work.html">Gallery</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="year"></span> MC Property Repairs. All rights reserved.</span>
-      <span>Self-employed builder &middot; Bathrooms &middot; Kitchens &middot; Patios &middot; Fencing &middot; Drainage &middot; Plastering &middot; Painting &middot; Stud Walls</span>
-    </div>
-  </div>
-</footer>
-
+<footer><div class="wrap"><div class="footer-grid">
+<a href="#top" class="logo"><span class="logo-mark">MC</span><span class="logo-text">Mark Cartledge<span class="sub">MC Property Repairs</span></span></a>
+<div class="footer-nav"><a href="#services">Services</a><a href="about.html">About</a><a href="work.html">Gallery</a><a href="#contact">Contact</a></div>
+</div><div class="footer-bottom"><span>&copy; <span id="year"></span> MC Property Repairs. All rights reserved.</span><span>Self-employed builder &middot; Bathrooms &middot; Kitchens &middot; Patios &middot; Fencing &middot; Drainage &middot; Plastering &middot; Painting &middot; Stud Walls</span></div></div></footer>
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open);
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', false);
-  }));
+document.getElementById('year').textContent=new Date().getFullYear();
+const navToggle=document.getElementById('navToggle');
+const navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',open);});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded',false);}));
 </script>
-
 </body>
 </html>
