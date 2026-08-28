@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Work | MC Property Repairs</title>
-<meta name="description" content="The range of building work Mark Cartledge takes on at MC Property Repairs — bathrooms, kitchens, patios, fencing, en suites, plastering, painting and stud walls.">
+<title>Patio Projects | MC Property Repairs</title>
+<meta name="description" content="Patio laying projects completed by Mark Cartledge at MC Property Repairs, browsable by individual job.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -36,20 +36,19 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.2s;}
 .page-hero{padding:72px 0 56px;background:radial-gradient(900px 400px at 85% -10%,rgba(217,98,43,0.14),transparent 60%),var(--cream);border-bottom:1px solid var(--line);}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--slate);margin-bottom:18px;}
+.back-link:hover{color:var(--brick);}
 .page-hero h1{font-size:40px;letter-spacing:-0.015em;margin-bottom:16px;}
 .page-hero p{font-size:17px;color:var(--slate);max-width:600px;}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-.gallery-tile{aspect-ratio:1/1;border-radius:var(--radius);background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--slate);text-align:center;padding:16px;position:relative;overflow:hidden;}
-.gallery-tile span{font-family:'Poppins',sans-serif;font-weight:600;font-size:13.5px;color:var(--charcoal);}
-.gallery-tile p{font-size:13px;color:var(--slate);}
-.gallery-note{margin-top:32px;font-size:14px;color:var(--slate);border-left:3px solid var(--brick);padding-left:14px;}
-.gallery-tile-photo{cursor:pointer;border:none;background-size:cover;background-position:center;color:var(--white);justify-content:flex-end;align-items:flex-start;padding:0;}
-.gallery-tile-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,35,40,0.05) 40%,rgba(30,35,40,0.82) 100%);}
-.gallery-tile-photo span,.gallery-tile-photo p{position:relative;color:var(--white);text-align:left;padding:0 16px;}
-.gallery-tile-photo span{margin-top:auto;}
-.gallery-tile-photo p{padding-bottom:16px;color:#E7E3DA;}
-.gallery-tile-photo .explore-tag{position:relative;align-self:flex-start;margin:12px 0 0 16px;background:var(--brick);color:var(--white);font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;}
-.gallery-tile-photo:hover{transform:translateY(-2px);transition:transform .15s ease;}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.project-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:transform .15s ease;}
+.project-card:hover{transform:translateY(-3px);}
+.project-photo{aspect-ratio:16/10;background-size:cover;background-position:center;position:relative;}
+.project-photo .explore-tag{position:absolute;top:14px;left:14px;background:var(--brick);color:var(--white);font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;}
+.project-body{padding:22px 24px;}
+.project-body h3{font-size:19px;margin-bottom:6px;}
+.project-body p{font-size:14px;color:var(--slate);}
+.project-count{margin-top:12px;font-size:12.5px;font-weight:600;color:var(--brick);text-transform:uppercase;letter-spacing:0.05em;}
 .explorer-overlay{display:none;position:fixed;inset:0;background:rgba(20,23,26,0.92);z-index:100;align-items:center;justify-content:center;padding:24px;}
 .explorer-overlay.open{display:flex;}
 .explorer-box{position:relative;max-width:760px;width:100%;}
@@ -69,8 +68,8 @@ footer .logo-text{color:var(--white);}
 footer .logo-text .sub{color:#8A939C;}
 .footer-nav{display:flex;gap:26px;font-size:14px;flex-wrap:wrap;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.10);padding-top:22px;font-size:13px;color:#8A939C;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-@media (max-width:920px){.nav-links{position:fixed;top:73px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:20px 32px 28px;border-bottom:1px solid var(--line);gap:18px;transform:translateY(-130%);transition:transform .25s ease;}.nav-links.open{transform:translateY(0);}.nav-toggle{display:block;}.gallery-grid{grid-template-columns:repeat(2,1fr);}.page-hero h1{font-size:32px;}}
-@media (max-width:560px){.gallery-grid{grid-template-columns:1fr;}section{padding:64px 0;}.page-hero{padding:56px 0 40px;}.wrap{padding:0 20px;}}
+@media (max-width:920px){.nav-links{position:fixed;top:73px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:20px 32px 28px;border-bottom:1px solid var(--line);gap:18px;transform:translateY(-130%);transition:transform .25s ease;}.nav-links.open{transform:translateY(0);}.nav-toggle{display:block;}.projects-grid{grid-template-columns:1fr;}.page-hero h1{font-size:32px;}}
+@media (max-width:560px){section{padding:64px 0;}.page-hero{padding:56px 0 40px;}.wrap{padding:0 20px;}}
 </style>
 </head>
 <body>
@@ -81,33 +80,11 @@ footer .logo-text .sub{color:#8A939C;}
 </nav></header>
 <main>
 <section class="page-hero"><div class="wrap">
-<div class="eyebrow">Our Work</div><h1>A look at what Mark covers</h1><p>Photo gallery of finished jobs to follow — here's the range of work Mark takes on in the meantime, from full bathroom refits to garden fencing.</p>
+<a href="work.html" class="back-link">&#8249; Back to Gallery</a>
+<div class="eyebrow">Patios</div><h1>Patio projects</h1><p>Every patio job Mark's completed, browsable one project at a time. Pick a project below to see its full set of photos.</p>
 </div></section>
 <section><div class="wrap">
-<div class="gallery-grid">
-<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/bathroom2-after-1.jpg');" onclick="openExplorer('bathroom',0)" role="button" tabindex="0" aria-label="Explore bathroom project photos" onkeydown="if(event.key==='Enter')openExplorer('bathroom',0)">
-<span class="explore-tag">Explore Photos</span>
-<span>Bathrooms</span><p>Full fit-outs &amp; refurbishments</p>
-</div>
-<div class="gallery-tile"><span>Kitchens</span><p>Strip-out to final finish</p></div>
-<a class="gallery-tile gallery-tile-photo" href="patios.html" style="background-image:url('images/patio-1.jpg');" aria-label="View patio projects">
-<span class="explore-tag">View Projects</span>
-<span>Patios</span><p>Laying &amp; outdoor paving</p>
-</a>
-<div class="gallery-tile"><span>Fencing</span><p>Panels, posts &amp; gates</p></div>
-<a class="gallery-tile gallery-tile-photo" href="ensuite.html" style="background-image:url('images/bathroom-after-1.png');" aria-label="View en suite projects">
-<span class="explore-tag">View Projects</span>
-<span>En Suites</span><p>Fitting &amp; installation</p>
-</a>
-<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/plastering-1.jpg');" onclick="openExplorer('plastering',0)" role="button" tabindex="0" aria-label="Explore plastering project photos" onkeydown="if(event.key==='Enter')openExplorer('plastering',0)">
-<span class="explore-tag">Explore Photos</span>
-<span>Plastering</span><p>Skimming &amp; re-plastering</p>
-</div>
-<div class="gallery-tile"><span>Painting</span><p>Interior &amp; exterior decorating</p></div>
-<div class="gallery-tile"><span>Stud Walls</span><p>New partition walls</p></div>
-</div>
-<p class="gallery-note">Have before/after photos of your work? Send them over and this page can be swapped for a real project gallery.</p>
-<div style="margin-top:44px;"><a href="index.html#contact" class="btn btn-primary">Get a Free Quote</a></div>
+<div class="projects-grid" id="projectsGrid"></div>
 </div></section>
 </main>
 <div class="explorer-overlay" id="explorerOverlay" onclick="if(event.target===this)closeExplorer()">
@@ -132,25 +109,45 @@ const navLinks=document.getElementById('navLinks');
 navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',open);});
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded',false);}));
 
-const photoSets={
-  plastering:[
-    {src:'images/plastering-1.jpg',caption:'Freshly skimmed walls and ceiling in a re-plastered lounge.'},
-    {src:'images/plastering-2.jpg',caption:'Smooth, ready-to-decorate finish around the window and alcove.'},
-    {src:'images/plastering-3.jpg',caption:'Re-plastered bedroom wall, skimmed smooth and ready for painting.'},
-    {src:'images/plastering-4.jpg',caption:'Corner and window reveal finished to a clean, even surface.'}
-  ],
-  bathroom:[
-    {src:'images/bathroom2-before-1.jpg',tag:'Before',caption:''},
-    {src:'images/bathroom2-before-2.jpg',tag:'Before',caption:''},
-    {src:'images/bathroom2-before-3.jpg',tag:'Before',caption:''},
-    {src:'images/bathroom2-before-4.jpg',tag:'Before',caption:''},
-    {src:'images/bathroom2-after-1.jpg',tag:'After',caption:'Fully re-tiled accessible bathroom with wall-hung toilet, vanity unit and chrome heated towel rail.'},
-    {src:'images/bathroom2-after-2.jpg',tag:'After',caption:'Walk-in shower enclosure with grab rails and a fold-down seat for accessibility.'},
-    {src:'images/bathroom2-after-3.jpg',tag:'After',caption:'Thermostatic shower with riser rail and handset, fitted within the tiled enclosure.'},
-    {src:'images/bathroom2-after-4.jpg',tag:'After',caption:'Shower screen and vanity sink finished beneath the frosted window.'}
-  ]
-};
-let currentSet='patio';
+const projects=[
+  {
+    key:'project1',
+    name:'Project 1',
+    summary:'Patio laid with sandstone-effect paving, timber sleeper edging and a drainage channel.',
+    thumb:'images/patio-1.jpg',
+    photos:[
+      {src:'images/patio-1.jpg',caption:'Newly laid patio next to the French doors, with sleeper edging.'},
+      {src:'images/patio-2.jpg',caption:'Patio paving along the side of the house with a drainage channel.'},
+      {src:'images/patio-3.jpg',caption:'Finished patio corner with timber sleeper border and lawn.'}
+    ]
+  },
+  {
+    key:'project2',
+    name:'Project 2',
+    summary:'Indian sandstone patio laid across the full garden with curved edging and new fencing.',
+    thumb:'images/patio-4.jpg',
+    photos:[
+      {src:'images/patio-4.jpg',caption:'Indian sandstone patio pathway laid along the side of the house.'},
+      {src:'images/patio-5.jpg',caption:'Full garden patio with curved edging, sleeper-lined borders and new fencing.'},
+      {src:'images/patio-6.jpg',caption:'Patio finished around the conservatory corner, ready for outdoor furniture.'}
+    ]
+  }
+];
+
+const projectsGrid=document.getElementById('projectsGrid');
+projects.forEach((proj,i)=>{
+  const card=document.createElement('div');
+  card.className='project-card';
+  card.setAttribute('role','button');
+  card.setAttribute('tabindex','0');
+  card.setAttribute('aria-label','Explore '+proj.name+' photos');
+  card.innerHTML=`<div class="project-photo" style="background-image:url('${proj.thumb}');"><span class="explore-tag">Explore Photos</span></div><div class="project-body"><h3>${proj.name}</h3><p>${proj.summary}</p><div class="project-count">${proj.photos.length} photos</div></div>`;
+  card.addEventListener('click',()=>openExplorer(i,0));
+  card.addEventListener('keydown',(e)=>{if(e.key==='Enter')openExplorer(i,0);});
+  projectsGrid.appendChild(card);
+});
+
+let currentProject=0;
 let explorerIndex=0;
 const explorerOverlay=document.getElementById('explorerOverlay');
 const explorerImg=document.getElementById('explorerImg');
@@ -158,7 +155,7 @@ const explorerCaption=document.getElementById('explorerCaption');
 const explorerCount=document.getElementById('explorerCount');
 const explorerTag=document.getElementById('explorerTag');
 function renderExplorer(){
-  const photos=photoSets[currentSet];
+  const photos=projects[currentProject].photos;
   const photo=photos[explorerIndex];
   explorerImg.src=photo.src;
   explorerImg.alt=photo.caption||photo.tag||'';
@@ -168,9 +165,9 @@ function renderExplorer(){
   explorerTag.style.display=photo.tag?'inline-block':'none';
   explorerCount.textContent=(explorerIndex+1)+' / '+photos.length;
 }
-function openExplorer(setName,index){
-  currentSet=setName;
-  explorerIndex=index;
+function openExplorer(projectIndex,photoIndex){
+  currentProject=projectIndex;
+  explorerIndex=photoIndex;
   renderExplorer();
   explorerOverlay.classList.add('open');
   document.body.style.overflow='hidden';
@@ -180,7 +177,7 @@ function closeExplorer(){
   document.body.style.overflow='';
 }
 function stepExplorer(delta){
-  const photos=photoSets[currentSet];
+  const photos=projects[currentProject].photos;
   explorerIndex=(explorerIndex+delta+photos.length)%photos.length;
   renderExplorer();
 }
