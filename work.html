@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Work | MC Property Repairs</title>
-<meta name="description" content="The range of building work Mark Cartledge takes on at MC Property Repairs — bathrooms, kitchens, patios, fencing, drainage, plastering, painting and stud walls.">
+<meta name="description" content="The range of building work Mark Cartledge takes on at MC Property Repairs — bathrooms, kitchens, patios, fencing, en suites, plastering, painting and stud walls.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -95,8 +95,11 @@ footer .logo-text .sub{color:#8A939C;}
 <span>Patios</span><p>Laying &amp; outdoor paving</p>
 </div>
 <div class="gallery-tile"><span>Fencing</span><p>Panels, posts &amp; gates</p></div>
-<div class="gallery-tile"><span>Drainage</span><p>Repairs &amp; installation</p></div>
-<div class="gallery-tile"><span>Plastering</span><p>Skimming &amp; re-plastering</p></div>
+<div class="gallery-tile"><span>En Suites</span><p>Fitting &amp; installation</p></div>
+<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/plastering-1.jpg');" onclick="openExplorer('plastering',0)" role="button" tabindex="0" aria-label="Explore plastering project photos" onkeydown="if(event.key==='Enter')openExplorer('plastering',0)">
+<span class="explore-tag">Explore Photos</span>
+<span>Plastering</span><p>Skimming &amp; re-plastering</p>
+</div>
 <div class="gallery-tile"><span>Painting</span><p>Interior &amp; exterior decorating</p></div>
 <div class="gallery-tile"><span>Stud Walls</span><p>New partition walls</p></div>
 </div>
@@ -118,7 +121,7 @@ footer .logo-text .sub{color:#8A939C;}
 <footer><div class="wrap"><div class="footer-grid">
 <a href="index.html" class="logo"><span class="logo-mark">MC</span><span class="logo-text">Mark Cartledge<span class="sub">MC Property Repairs</span></span></a>
 <div class="footer-nav"><a href="index.html#services">Services</a><a href="about.html">About</a><a href="work.html">Gallery</a><a href="index.html#contact">Contact</a></div>
-</div><div class="footer-bottom"><span>&copy; <span id="year"></span> MC Property Repairs. All rights reserved.</span><span>Self-employed builder &middot; Bathrooms &middot; Kitchens &middot; Patios &middot; Fencing &middot; Drainage &middot; Plastering &middot; Painting &middot; Stud Walls</span></div></div></footer>
+</div><div class="footer-bottom"><span>&copy; <span id="year"></span> MC Property Repairs. All rights reserved.</span><span>Self-employed builder &middot; Bathrooms &middot; Kitchens &middot; Patios &middot; Fencing &middot; En Suites &middot; Plastering &middot; Painting &middot; Stud Walls</span></div></div></footer>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 const navToggle=document.getElementById('navToggle');
@@ -127,6 +130,12 @@ navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('op
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded',false);}));
 
 const photoSets={
+  plastering:[
+    {src:'images/plastering-1.jpg',caption:'Freshly skimmed walls and ceiling in a re-plastered lounge.'},
+    {src:'images/plastering-2.jpg',caption:'Smooth, ready-to-decorate finish around the window and alcove.'},
+    {src:'images/plastering-3.jpg',caption:'Re-plastered bedroom wall, skimmed smooth and ready for painting.'},
+    {src:'images/plastering-4.jpg',caption:'Corner and window reveal finished to a clean, even surface.'}
+  ],
   patio:[
     {src:'images/patio-1.jpg',tag:'Project 1',caption:'Newly laid patio next to the French doors, with sleeper edging.'},
     {src:'images/patio-2.jpg',tag:'Project 1',caption:'Patio paving along the side of the house with a drainage channel.'},
