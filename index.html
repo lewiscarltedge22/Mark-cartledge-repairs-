@@ -76,13 +76,17 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
 .field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);font-family:'Inter',sans-serif;font-size:14.5px;background:var(--cream);color:var(--ink);}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .field textarea{resize:vertical;min-height:110px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.review-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px;}
+.review-card p{color:var(--charcoal);font-size:15px;line-height:1.65;margin-bottom:18px;}
+.review-author{font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;color:var(--brick);}
 footer{background:var(--ink);color:#C7CDD3;padding:48px 0 28px;}
 .footer-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:32px;}
 footer .logo-text{color:var(--white);}
 footer .logo-text .sub{color:#8A939C;}
 .footer-nav{display:flex;gap:26px;font-size:14px;flex-wrap:wrap;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.10);padding-top:22px;font-size:13px;color:#8A939C;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-@media (max-width:920px){.nav-links{position:fixed;top:73px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:20px 32px 28px;border-bottom:1px solid var(--line);gap:18px;transform:translateY(-130%);transition:transform .25s ease;}.nav-links.open{transform:translateY(0);}.nav-toggle{display:block;}.hero-grid{grid-template-columns:1fr;}.services-grid{grid-template-columns:repeat(2,1fr);}.contact-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.hero h1{font-size:36px;}}
+@media (max-width:920px){.nav-links{position:fixed;top:73px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:flex-start;padding:20px 32px 28px;border-bottom:1px solid var(--line);gap:18px;transform:translateY(-130%);transition:transform .25s ease;}.nav-links.open{transform:translateY(0);}.nav-toggle{display:block;}.hero-grid{grid-template-columns:1fr;}.services-grid{grid-template-columns:repeat(2,1fr);}.contact-grid{grid-template-columns:1fr;}.field-row{grid-template-columns:1fr;}.reviews-grid{grid-template-columns:1fr;}.hero h1{font-size:36px;}}
 @media (max-width:560px){.services-grid{grid-template-columns:1fr;}section{padding:64px 0;}.wrap{padding:0 20px;}}
 </style>
 </head>
@@ -90,7 +94,7 @@ footer .logo-text .sub{color:#8A939C;}
 <header><nav>
 <a href="#top" class="logo"><span class="logo-mark">MC</span><span class="logo-text">Mark Cartledge<span class="sub">MC Property Repairs</span></span></a>
 <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-<div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="about.html">About</a><a href="work.html">Gallery</a><a href="#contact">Contact</a><a href="#contact" class="btn btn-primary">Get a Quote</a></div>
+<div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="about.html">About</a><a href="work.html">Gallery</a><a href="#contact">Contact</a><a href="#reviews">Reviews</a><a href="#contact" class="btn btn-primary">Get a Quote</a></div>
 </nav></header>
 <main id="top">
 <section class="hero" style="padding-top:96px;"><div class="wrap hero-grid"><div>
@@ -132,10 +136,17 @@ footer .logo-text .sub{color:#8A939C;}
 <div class="field"><label for="message">Job details</label><textarea id="message" name="message" placeholder="Tell Mark a bit about the job, size of the space and rough timeframe."></textarea></div>
 <button type="submit" class="btn btn-primary" style="width:100%;">Send Quote Request</button>
 </form></div></div></section>
+<section id="reviews"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Customer Reviews</div><h2>What customers say</h2><p>A couple of messages from customers after recent jobs.</p></div>
+<div class="reviews-grid">
+<div class="review-card"><p>"Thank you for all your hard work. The bathroom has been transformed, it's great. Very nice finish thank you. I'm glad to see all that old bodge ripped out... There were a few curve balls for you wasn't there!"</p><div class="review-author">— Andy</div></div>
+<div class="review-card"><p>"Hey bud, wanted to drop you a line and say thanks again for the work. We've had the place revalued and it's gone up by more than we've spent, and part of that's down to your work so thank you... Had the carpet done now in the lounge too, man that makes a big difference."</p><div class="review-author">— Niall</div></div>
+</div>
+</div></section>
 </main>
 <footer><div class="wrap"><div class="footer-grid">
 <a href="#top" class="logo"><span class="logo-mark">MC</span><span class="logo-text">Mark Cartledge<span class="sub">MC Property Repairs</span></span></a>
-<div class="footer-nav"><a href="#services">Services</a><a href="about.html">About</a><a href="work.html">Gallery</a><a href="#contact">Contact</a></div>
+<div class="footer-nav"><a href="#services">Services</a><a href="about.html">About</a><a href="work.html">Gallery</a><a href="#contact">Contact</a><a href="#reviews">Reviews</a></div>
 </div><div class="footer-bottom"><span>&copy; <span id="year"></span> MC Property Repairs. All rights reserved.</span><span>Self-employed builder &middot; Bathrooms &middot; Kitchens &middot; Patios &middot; Fencing &middot; Drainage &middot; Plastering &middot; Painting &middot; Stud Walls</span></div></div></footer>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
