@@ -85,7 +85,7 @@ footer .logo-text .sub{color:#8A939C;}
 </div></section>
 <section><div class="wrap">
 <div class="gallery-grid">
-<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/bathroom-after-1.png');" onclick="openExplorer('bathroom',0)" role="button" tabindex="0" aria-label="Explore bathroom project photos" onkeydown="if(event.key==='Enter')openExplorer('bathroom',0)">
+<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/bathroom2-after-1.jpg');" onclick="openExplorer('bathroom',0)" role="button" tabindex="0" aria-label="Explore bathroom project photos" onkeydown="if(event.key==='Enter')openExplorer('bathroom',0)">
 <span class="explore-tag">Explore Photos</span>
 <span>Bathrooms</span><p>Full fit-outs &amp; refurbishments</p>
 </div>
@@ -95,7 +95,10 @@ footer .logo-text .sub{color:#8A939C;}
 <span>Patios</span><p>Laying &amp; outdoor paving</p>
 </div>
 <div class="gallery-tile"><span>Fencing</span><p>Panels, posts &amp; gates</p></div>
-<div class="gallery-tile"><span>En Suites</span><p>Fitting &amp; installation</p></div>
+<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/bathroom-after-1.png');" onclick="openExplorer('ensuite',0)" role="button" tabindex="0" aria-label="Explore en suite project photos" onkeydown="if(event.key==='Enter')openExplorer('ensuite',0)">
+<span class="explore-tag">Explore Photos</span>
+<span>En Suites</span><p>Fitting &amp; installation</p>
+</div>
 <div class="gallery-tile gallery-tile-photo" style="background-image:url('images/plastering-1.jpg');" onclick="openExplorer('plastering',0)" role="button" tabindex="0" aria-label="Explore plastering project photos" onkeydown="if(event.key==='Enter')openExplorer('plastering',0)">
 <span class="explore-tag">Explore Photos</span>
 <span>Plastering</span><p>Skimming &amp; re-plastering</p>
@@ -145,23 +148,25 @@ const photoSets={
     {src:'images/patio-6.jpg',tag:'Project 2',caption:'Patio finished around the conservatory corner, ready for outdoor furniture.'}
   ],
   bathroom:[
-    {src:'images/bathroom-before-1.png',tag:'Project 1 · Before',caption:''},
-    {src:'images/bathroom-before-2.png',tag:'Project 1 · Before',caption:''},
-    {src:'images/bathroom-before-3.png',tag:'Project 1 · Before',caption:''},
-    {src:'images/bathroom-before-4.png',tag:'Project 1 · Before',caption:''},
-    {src:'images/bathroom-after-1.png',tag:'Project 1 · After',caption:'Fully re-tiled bathroom with a wall-mounted vanity unit, mirrored cabinet and chrome mixer tap.'},
-    {src:'images/bathroom-after-2.png',tag:'Project 1 · After',caption:'New anthracite heated towel rail and floor tiling finished to match the room.'},
-    {src:'images/bathroom-after-3.png',tag:'Project 1 · After',caption:'Anthracite ladder-style heated towel rail fitted flush to the tiled wall.'},
-    {src:'images/bathroom-after-4.png',tag:'Project 1 · After',caption:'Recessed shower shelving and glass screen, viewed through the vanity mirror.'},
-    {src:'images/bathroom-after-5.png',tag:'Project 1 · After',caption:'Frosted privacy glazing and tiled window sill finished to complete the room.'},
-    {src:'images/bathroom2-before-1.jpg',tag:'Project 2 · Before',caption:''},
-    {src:'images/bathroom2-before-2.jpg',tag:'Project 2 · Before',caption:''},
-    {src:'images/bathroom2-before-3.jpg',tag:'Project 2 · Before',caption:''},
-    {src:'images/bathroom2-before-4.jpg',tag:'Project 2 · Before',caption:''},
-    {src:'images/bathroom2-after-1.jpg',tag:'Project 2 · After',caption:'Fully re-tiled accessible bathroom with wall-hung toilet, vanity unit and chrome heated towel rail.'},
-    {src:'images/bathroom2-after-2.jpg',tag:'Project 2 · After',caption:'Walk-in shower enclosure with grab rails and a fold-down seat for accessibility.'},
-    {src:'images/bathroom2-after-3.jpg',tag:'Project 2 · After',caption:'Thermostatic shower with riser rail and handset, fitted within the tiled enclosure.'},
-    {src:'images/bathroom2-after-4.jpg',tag:'Project 2 · After',caption:'Shower screen and vanity sink finished beneath the frosted window.'}
+    {src:'images/bathroom2-before-1.jpg',tag:'Before',caption:''},
+    {src:'images/bathroom2-before-2.jpg',tag:'Before',caption:''},
+    {src:'images/bathroom2-before-3.jpg',tag:'Before',caption:''},
+    {src:'images/bathroom2-before-4.jpg',tag:'Before',caption:''},
+    {src:'images/bathroom2-after-1.jpg',tag:'After',caption:'Fully re-tiled accessible bathroom with wall-hung toilet, vanity unit and chrome heated towel rail.'},
+    {src:'images/bathroom2-after-2.jpg',tag:'After',caption:'Walk-in shower enclosure with grab rails and a fold-down seat for accessibility.'},
+    {src:'images/bathroom2-after-3.jpg',tag:'After',caption:'Thermostatic shower with riser rail and handset, fitted within the tiled enclosure.'},
+    {src:'images/bathroom2-after-4.jpg',tag:'After',caption:'Shower screen and vanity sink finished beneath the frosted window.'}
+  ],
+  ensuite:[
+    {src:'images/bathroom-before-1.png',tag:'Before',caption:''},
+    {src:'images/bathroom-before-2.png',tag:'Before',caption:''},
+    {src:'images/bathroom-before-3.png',tag:'Before',caption:''},
+    {src:'images/bathroom-before-4.png',tag:'Before',caption:''},
+    {src:'images/bathroom-after-1.png',tag:'After',caption:'Fully re-tiled en suite with a wall-mounted vanity unit, mirrored cabinet and chrome mixer tap.'},
+    {src:'images/bathroom-after-2.png',tag:'After',caption:'New anthracite heated towel rail and floor tiling finished to match the room.'},
+    {src:'images/bathroom-after-3.png',tag:'After',caption:'Anthracite ladder-style heated towel rail fitted flush to the tiled wall.'},
+    {src:'images/bathroom-after-4.png',tag:'After',caption:'Recessed shower shelving and glass screen, viewed through the vanity mirror.'},
+    {src:'images/bathroom-after-5.png',tag:'After',caption:'Frosted privacy glazing and tiled window sill finished to complete the room.'}
   ]
 };
 let currentSet='patio';
