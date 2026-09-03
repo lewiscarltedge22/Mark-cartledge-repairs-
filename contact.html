@@ -7,7 +7,7 @@
 <meta name="description" content="Get in touch with Mark Cartledge at MC Property Repairs for a free, no-obligation quote on bathrooms, kitchens, patios, fencing, en suites, plastering, painting and stud walls.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1E2328;--charcoal:#2C333A;--slate:#5B6570;--brick:#D9622B;--brick-dark:#B94F1F;--cream:#F7F4EF;--cream-dim:#ECE6DA;--white:#FFFFFF;--line:#DCD5C7;--radius:6px;--max:1180px;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -41,11 +41,13 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
 .contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;}
 .contact-info-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
 .contact-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);}
-.contact-row:last-child{border-bottom:none;}
+.contact-row:last-of-type{border-bottom:none;}
 .contact-row .ci-icon{width:40px;height:40px;border-radius:8px;background:var(--cream-dim);display:flex;align-items:center;justify-content:center;color:var(--brick);flex-shrink:0;}
 .contact-row h4{font-size:14px;margin-bottom:3px;}
 .contact-row p{font-size:14.5px;color:var(--slate);}
 .contact-row a{color:var(--charcoal);font-weight:600;}
+.contact-signature{font-family:'Caveat',cursive;font-size:34px;line-height:1;color:var(--brick);margin-top:22px;padding-top:22px;border-top:1px solid var(--line);}
+.contact-signature-note{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:var(--slate);margin-bottom:6px;}
 .form-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:36px;}
 .form-card h3{margin-bottom:8px;}
 .form-card > p{color:var(--slate);font-size:14.5px;margin-bottom:26px;}
@@ -77,10 +79,11 @@ footer .logo-text .sub{color:#8A939C;}
 <section><div class="wrap contact-grid">
 <div>
 <div class="contact-info-card">
-<div class="contact-row"><div><h4>Phone</h4><p><a href="tel:07887646820">07887 646820</a></p></div></div>
-<div class="contact-row"><div><h4>Email</h4><p><a href="mailto:markcartledge35@gmail.com">markcartledge35@gmail.com</a></p></div></div>
+<div class="contact-row"><div><h4>Call Me</h4><p><a href="tel:07887646820">07887 646820</a></p></div></div>
+<div class="contact-row"><div><h4>Email Me</h4><p><a href="mailto:markcartledge35@gmail.com">markcartledge35@gmail.com</a></p></div></div>
 <div class="contact-row"><div><h4>Coverage Area</h4><p>I'm based in Southampton and cover the surrounding area, but don't let that put you off if you're a bit further out — drop me a message anyway and I'll let you know if I can help.</p></div></div>
 <div class="contact-row"><div><h4>Availability</h4><p>Mon – Sat, quotes usually confirmed within 48 hours.</p></div></div>
+<div class="contact-signature"><span class="contact-signature-note">Looking forward to hearing from you,</span>Mark</div>
 </div></div>
 <div class="form-card" id="quote-form"><h3>Request a Quote</h3><p>Fill in a few details and I'll get back to you.</p>
 <form action="mailto:markcartledge35@gmail.com" method="post" enctype="text/plain">
