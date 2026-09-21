@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mark-cartledge-repairs-namy.vercel.app/sitemap.xml
