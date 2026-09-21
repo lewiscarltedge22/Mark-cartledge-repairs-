@@ -92,7 +92,10 @@ footer .logo-text .sub{color:#8A939C;}
 <span class="explore-tag">Explore Photos</span>
 <span>Bathrooms</span><p>Full fit-outs &amp; refurbishments</p>
 </div>
-<div class="gallery-tile"><span>Kitchens</span><p>Strip-out to final finish</p></div>
+<div class="gallery-tile gallery-tile-photo" style="background-image:url('images/kitchen-before-1.webp');" onclick="openExplorer('kitchen',0)" role="button" tabindex="0" aria-label="Explore kitchen project photos" onkeydown="if(event.key==='Enter')openExplorer('kitchen',0)">
+<span class="explore-tag">Explore Photos</span>
+<span>Kitchens</span><p>Strip-out to final finish</p>
+</div>
 <a class="gallery-tile gallery-tile-photo" href="patios.html" style="background-image:url('images/patio-1.jpg');" aria-label="View patio projects">
 <span class="explore-tag">View Projects</span>
 <span>Patios</span><p>Laying &amp; outdoor paving</p>
@@ -137,6 +140,13 @@ navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('op
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded',false);}));
 
 const photoSets={
+  kitchen:[
+    {src:'images/kitchen-before-1.webp',tag:'Before',caption:''},
+    {src:'images/kitchen-before-2.webp',tag:'Before',caption:''},
+    {src:'images/kitchen-before-3.webp',tag:'Before',caption:''},
+    {src:'images/kitchen-before-4.webp',tag:'Before',caption:''},
+    {src:'images/kitchen-before-5.webp',tag:'Before',caption:''}
+  ],
   plastering:[
     {src:'images/plastering-1.jpg',caption:'Freshly skimmed walls and ceiling in a re-plastered lounge.'},
     {src:'images/plastering-2.jpg',caption:'Smooth, ready-to-decorate finish around the window and alcove.'},
