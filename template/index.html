@@ -9,24 +9,58 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <title>[Business Name] | Bathrooms, Kitchens, Patios &amp; More</title>
 <meta name="description" content="[Business Name], run by self-employed builder [Owner Name], offers bathroom and kitchen fitting, patios, fencing, en suites, plastering, painting and stud walls.">
+<link rel="canonical" href="https://your-domain.example/">
+<meta name="theme-color" content="#2C333A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="[Business Name]">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="[Business Name] | Bathrooms, Kitchens, Patios &amp; More">
+<meta property="og:description" content="[Business Name], run by self-employed builder [Owner Name], offers bathroom and kitchen fitting, patios, fencing, en suites, plastering, painting and stud walls.">
+<meta property="og:url" content="https://your-domain.example/">
+<meta property="og:image" content="https://your-domain.example/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Business Name] | Bathrooms, Kitchens, Patios &amp; More">
+<meta name="twitter:description" content="[Business Name], run by self-employed builder [Owner Name], offers bathroom and kitchen fitting, patios, fencing, en suites, plastering, painting and stud walls.">
+<meta name="twitter:image" content="https://your-domain.example/images/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<!-- Replace the two [example photo] paths below with real project photos once you have some -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
+  "@id": "https://your-domain.example/#business",
   "name": "[Business Name]",
-  "image": "https://your-domain.example/images/apple-touch-icon.png",
+  "logo": "https://your-domain.example/images/apple-touch-icon.png",
+  "image": [
+    "https://your-domain.example/images/[example-photo-1].jpg",
+    "https://your-domain.example/images/[example-photo-2].jpg"
+  ],
   "url": "https://your-domain.example/",
   "telephone": "+447000000000",
   "email": "you@example.com",
-  "founder": {"@type": "Person", "name": "[Owner Name]"},
+  "founder": {"@type": "Person", "name": "[Owner Name]", "jobTitle": "Self-Employed Builder"},
   "address": {"@type": "PostalAddress", "addressLocality": "[Your Town]", "addressRegion": "[Your County]", "addressCountry": "GB"},
   "areaServed": "[Your Town] and surrounding area",
   "priceRange": "££",
   "description": "Self-employed builder covering bathrooms, kitchens, patios, fencing, en suites, plastering, painting and stud walls in [Your Town].",
-  "sameAs": []
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bathroom Fitting", "description": "Full bathroom fit-outs and refurbishments — tiling, plumbing coordination and finishing."}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kitchen Fitting", "description": "Kitchen fitting from strip-out to final finish, including units, worktops and carpentry."}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Patio Laying", "description": "Patio laying and outdoor paving with proper prep and drainage falls."}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fencing", "description": "Garden and boundary fencing — panels, posts and gates."}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "En Suite Fitting", "description": "En suite fitting and installation, planned to make the most of smaller spaces."}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plastering", "description": "Skimming and re-plastering for smooth, ready-to-decorate walls and ceilings."}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Painting & Decorating", "description": "Interior and exterior painting and decorating with a clean, tidy finish."}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Stud Wall Partitions", "description": "New stud partition walls, built square, insulated and ready for plastering."}}
+    ]
+  }
 }
 </script>
 <style>

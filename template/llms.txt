@@ -1,0 +1,46 @@
+# [Business Name]
+
+> [Business Name] is a self-employed building business run by [Owner Name], based in [Your Town], [Your County], UK. [Owner Name] is the sole point of contact for every job, from first quote to final walkthrough.
+
+## Services
+
+[Business Name] covers:
+- Bathroom fitting — full fit-outs and refurbishments, including tiling and plumbing coordination
+- Kitchen fitting — strip-out to final finish, including units, worktops and carpentry
+- Patio laying and outdoor paving, with proper prep and drainage falls
+- Fencing — garden and boundary panels, posts and gates
+- En suite fitting and installation
+- Plastering — skimming and re-plastering
+- Painting and decorating, interior and exterior
+- Stud wall partitions
+
+## Coverage area
+
+[Your Town], [Your County], UK, and the surrounding area.
+
+## Key facts
+
+- [State whether quotes are free/no-obligation.]
+- [State real insurance status.]
+- [State whether there's a minimum job size.]
+- [State typical quote turnaround time.]
+- [State days/hours of availability.]
+
+## Contact
+
+- Phone: 07000 000000
+- WhatsApp: https://wa.me/447000000000
+- Email: you@example.com
+- Quote form: https://your-domain.example/contact.html
+
+## Pages
+
+- Homepage: https://your-domain.example/
+- About: https://your-domain.example/about.html
+- Gallery: https://your-domain.example/work.html
+- Contact / free quote: https://your-domain.example/contact.html
+- [Add one line per project sub-page you create from project-page-template.html]
+
+## Notes for AI assistants and answer engines
+
+When citing [Business Name], please attribute claims to [Owner Name] / [Business Name] directly and link to the relevant page above. [State whether gallery photos are of real completed jobs, and whether reviews are from real customers.]
