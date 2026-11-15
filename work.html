@@ -217,6 +217,10 @@ document.addEventListener('keydown',(e)=>{
   if(e.key==='ArrowLeft')stepExplorer(-1);
   if(e.key==='ArrowRight')stepExplorer(1);
 });
+if(location.hash){
+  const requestedSet=location.hash.slice(1);
+  if(photoSets[requestedSet])openExplorer(requestedSet,0);
+}
 </script>
 </body>
 </html>
